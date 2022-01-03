@@ -7,13 +7,14 @@ const driver = new Builder().withCapabilities(Capabilities.chrome()).build()
 test("Google", async () => {
     await driver.get('https://www.google.com/')
     
-    let searchSelector = /* The search bar selector in CSS */
+    let searchSelector = ('[name="q"]')
 
     let searchBarElement = await driver.findElement(By.css(searchSelector))
 
-    await searchBarElement.sendKeys('Your Search Here \n')
+    await searchBarElement.sendKeys('find current \n')
 
-    await driver.sleep(5000)
+    await driver.sleep(10000)
+    
     
     await driver.quit()
 })
